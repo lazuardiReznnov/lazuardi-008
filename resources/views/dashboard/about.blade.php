@@ -51,6 +51,17 @@
             </p>
         </div>
     </div>
+    <p class="text-center">
+        <a href="#" class="badge bg-blue-300 text-decoration-none"
+            ><i class="bi bi-facebook"></i></a
+        >|
+        <a href="#" class="badge bg-blue-300 text-decoration-none"
+            ><i class="bi bi-instagram"></i></a
+        >|
+        <a href="#" class="badge bg-blue-300 text-decoration-none"
+            ><i class="bi bi-linkedin"></i
+        ></a>
+    </p>
 </div>
 <!-- endJumbotron -->
 @endsection
