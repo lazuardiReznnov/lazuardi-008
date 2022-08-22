@@ -15,6 +15,13 @@
         </li>
         <li class="nav-item bg-hover">
             <a
+                class="nav-link text-blue-200 font-semibold text-uppercase fs-12 text-hover {{ Request::is('dashboard/dashboardabout*') ? 'active' : '' }}"
+                href="/dashboard/dashboardabout"
+                ><i class="bi bi-link"></i> About Management</a
+            >
+        </li>
+        <li class="nav-item bg-hover">
+            <a
                 class="nav-link text-blue-200 font-semibold text-uppercase fs-12 text-hover"
                 href="#"
                 ><i class="bi bi-link"></i> Module Management</a

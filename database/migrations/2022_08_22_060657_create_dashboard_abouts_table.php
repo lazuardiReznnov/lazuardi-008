@@ -12,20 +12,16 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('dashboard_unit_about_models', function (
-            Blueprint $table
-        ) {
+        Schema::create('dashboard_abouts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('stitle');
-            $table->string('email')->unique();
+            $table->string('smallTitle');
+            $table->text('descriptions1');
+            $table->text('descriptions2');
             $table->string('fb')->nullable();
+            $table->string('ln')->nullable();
             $table->string('ins')->nullable();
-            $table->string('lnkn')->nullable();
-            $table->text('address')->nullable();
-            $table->text('img')->nullable();
-            $table->text('desk1')->nullable();
-            $table->text('desk2')->nullable();
+            $table->string('img')->nullable();
             $table->timestamps();
         });
     }
@@ -37,6 +33,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('dashboard_unit_about_models');
+        Schema::dropIfExists('dashboard_abouts');
     }
 };

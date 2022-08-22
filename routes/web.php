@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardAboutController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,5 @@ Route::controller(DashboardController::class)->group(function () {
     Route::get('/dashboard/about', 'about');
     Route::get('/dashboard/contac', 'contac');
 });
+
+Route::resource('/dashboard/dashboardabout', DashboardAboutController::class);
