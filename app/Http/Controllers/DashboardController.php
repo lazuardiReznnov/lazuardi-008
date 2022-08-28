@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DashboardAbout;
 
 class DashboardController extends Controller
 {
@@ -17,6 +18,7 @@ class DashboardController extends Controller
     {
         return view('dashboard.about', [
             'title' => 'About',
+            'data' => DashboardAbout::first(),
         ]);
     }
 
