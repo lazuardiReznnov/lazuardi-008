@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardAboutController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,5 @@ Route::controller(DashboardController::class)->group(function () {
 });
 
 Route::resource('/dashboard/dashboardabout', DashboardAboutController::class);
+
+Route::get('/login', [LoginController::class], 'index');
