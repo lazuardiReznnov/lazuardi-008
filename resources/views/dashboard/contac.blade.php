@@ -52,10 +52,14 @@
                             />
                         </div>
                         <div class="mb-3">
+                            <label for="comment" class="form-label"
+                                >Comment</label
+                            >
                             <textarea
                                 class="form-control text-blue-700"
                                 id="exampleFormControlTextarea1"
                                 rows="3"
+                                name="comment"
                             ></textarea>
                         </div>
                         <div class="mb-3">
