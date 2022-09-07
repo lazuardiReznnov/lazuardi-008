@@ -1,149 +1,149 @@
 :root {
-  /* text-color */
-  --text-blue-50: #e3f2fd;
-  --text-blue-100: #bbdefb;
-  --text-blue-200: #64b5f6;
-  --text-blue-300: #42a5f5;
-  --text-blue-400: #2196f3;
-  --text-blue-600: #1e88e5;
-  --text-blue-700: #1976d2;
-  --text-blue-800: #1565c0;
-  --text-blue-900: #0d47a1;
+    /* text-color */
+    --text-blue-50: #e3f2fd;
+    --text-blue-100: #bbdefb;
+    --text-blue-200: #64b5f6;
+    --text-blue-300: #42a5f5;
+    --text-blue-400: #2196f3;
+    --text-blue-600: #1e88e5;
+    --text-blue-700: #1976d2;
+    --text-blue-800: #1565c0;
+    --text-blue-900: #0d47a1;
 
-  /* bg-color */
-  --bg-blue-50: #e3f2fd;
-  --bg-blue-100: #bbdefb;
-  --bg-blue-200: #64b5f6;
-  --bg-blue-300: #42a5f5;
-  --bg-blue-400: #2196f3;
-  --bg-blue-600: #1e88e5;
-  --bg-blue-700: #1976d2;
-  --bg-blue-800: #1565c0;
-  --bg-blue-900: #0d47a1;
+    /* bg-color */
+    --bg-blue-50: #e3f2fd;
+    --bg-blue-100: #bbdefb;
+    --bg-blue-200: #64b5f6;
+    --bg-blue-300: #42a5f5;
+    --bg-blue-400: #2196f3;
+    --bg-blue-600: #1e88e5;
+    --bg-blue-700: #1976d2;
+    --bg-blue-800: #1565c0;
+    --bg-blue-900: #0d47a1;
 
-  --font-roboto: "Roboto", sans-serif;
-  --fs-12: 12px;
-  --fs-14: 14px;
-  --fs-16: 16px;
-  --fs-18: 18px;
-  --fs-20: 20px;
-  --fs-24: 24px;
+    --font-roboto: "Roboto", sans-serif;
+    --fs-12: 12px;
+    --fs-14: 14px;
+    --fs-16: 16px;
+    --fs-18: 18px;
+    --fs-20: 20px;
+    --fs-24: 24px;
 }
 body {
-  background-color: var(--bg-blue-50);
-  font-family: var(--font-roboto);
+    background-color: var(--bg-blue-50);
+    font-family: var(--font-roboto);
 }
 
 .text-blue-50 {
-  color: var(--text-blue-50);
+    color: var(--text-blue-50);
 }
 .text-blue-100 {
-  color: var(--text-blue-100);
+    color: var(--text-blue-100);
 }
 .text-blue-200 {
-  color: var(--text-blue-200);
+    color: var(--text-blue-200);
 }
 .text-blue-300 {
-  color: var(--text-blue-300);
+    color: var(--text-blue-300);
 }
 .text-blue-400 {
-  color: var(--text-blue-400);
+    color: var(--text-blue-400);
 }
 .text-blue-500 {
-  color: var(--text-blue-500);
+    color: var(--text-blue-500);
 }
 .text-blue-600 {
-  color: var(--text-blue-600);
+    color: var(--text-blue-600);
 }
 .text-blue-700 {
-  color: var(--text-blue-700);
+    color: var(--text-blue-700);
 }
 .text-blue-800 {
-  color: var(--text-blue-800);
+    color: var(--text-blue-800);
 }
 .text-blue-900 {
-  color: var(--text-blue-900);
+    color: var(--text-blue-900);
 }
 .font-roboto {
-  font-family: var(--font-roboto);
+    font-family: var(--font-roboto);
 }
 
 .font-thin {
-  font-weight: 100;
+    font-weight: 100;
 }
 .font-reguler {
-  font-weight: 400;
+    font-weight: 400;
 }
 .font-semibold {
-  font-weight: 500;
+    font-weight: 500;
 }
 .font-bold {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .bg-blue-50 {
-  background-color: var(--bg-blue-50);
+    background-color: var(--bg-blue-50);
 }
 .bg-blue-100 {
-  background-color: var(--bg-blue-100);
+    background-color: var(--bg-blue-100);
 }
 .bg-blue-200 {
-  background-color: var(--bg-blue-200);
+    background-color: var(--bg-blue-200);
 }
 .bg-blue-300 {
-  background-color: var(--bg-blue-300);
+    background-color: var(--bg-blue-300);
 }
 .bg-blue-400 {
-  background-color: var(--bg-blue-400);
+    background-color: var(--bg-blue-400);
 }
 .bg-blue-500 {
-  background-color: var(--bg-blue-500);
+    background-color: var(--bg-blue-500);
 }
 .bg-blue-600 {
-  background-color: var(--bg-blue-600);
+    background-color: var(--bg-blue-600);
 }
 .bg-blue-700 {
-  background-color: var(--bg-blue-700);
+    background-color: var(--bg-blue-700);
 }
 .bg-blue-800 {
-  background-color: var(--bg-blue-800);
+    background-color: var(--bg-blue-800);
 }
 .bg-blue-900 {
-  background-color: var(--bg-blue-900);
+    background-color: var(--bg-blue-900);
 }
 .fs-12 {
-  font-size: var(--fs-12);
+    font-size: var(--fs-12);
 }
 .fs-14 {
-  font-size: var(--fs-14);
+    font-size: var(--fs-14);
 }
 .fs-16 {
-  font-size: var(--fs-16);
+    font-size: var(--fs-16);
 }
 .fs-18 {
-  font-size: var(--fs-16);
+    font-size: var(--fs-16);
 }
 .fs-20 {
-  font-size: var(--fs-20);
+    font-size: var(--fs-20);
 }
 .fs-24 {
-  font-size: var(--fs-24);
+    font-size: var(--fs-24);
 }
 .btn {
-  margin-left: -14px;
+    margin-left: -14px;
 }
 .bg-hover:hover {
-  background-color: var(--bg-blue-200);
-  border-radius: 25px;
+    background-color: var(--bg-blue-200);
+    border-radius: 25px;
 }
 .text-hover:hover {
-  color: var(--text-blue-50);
-  font-weight: 700;
+    color: var(--text-blue-50);
+    font-weight: 700;
 }
 
 .text-shadow {
-  text-shadow: 2px 2px 5px rgba(39, 39, 39, 0.52);
+    text-shadow: 2px 2px 5px rgba(39, 39, 39, 0.52);
 }
 .bg-hover-card:hover {
-  background-color: var(--bg-blue-200);
+    background-color: var(--bg-blue-200);
 }

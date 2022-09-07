@@ -24,4 +24,4 @@ Route::controller(DashboardController::class)->group(function () {
 
 Route::resource('/dashboard/dashboardabout', DashboardAboutController::class);
 
-Route::get('/login', [LoginController::class], 'index');
+Route::get('/login', [LoginController::class, 'index']);
