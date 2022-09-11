@@ -25,7 +25,7 @@
 
     <body>
         <!-- header -->
-        @include('layouts.dashboard.header')
+        <!-- @include('layouts.dashboard.header') -->
         <!-- endheader -->
         <!-- navbar -->
         @include('layouts.dashboard.nav')
@@ -34,7 +34,7 @@
         <!-- main -->
         <main>
             <div class="container-fluid">
-                <div class="row g-0">
+                <div class="row g-0 mt-5">
                     <div
                         class="col-md-3 bg-blue-900 p-2 min-vh-100 text-blue-100 shadow"
                     >

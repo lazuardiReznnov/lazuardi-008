@@ -7,9 +7,9 @@
     <ul class="nav flex-column ms-2">
         <li class="nav-item bg-hover">
             <a
-                class="nav-link text-hover text-blue-200 font-semibold text-uppercase active fs-12"
+                class="nav-link text-hover text-blue-200 font-semibold text-uppercase active fs-12 {{ Request::is('dashboard/user*') ? 'active' : '' }}"
                 aria-current="page"
-                href="#"
+                href="/dashboard/user"
                 ><i class="bi bi-person"></i> User Management</a
             >
         </li>
