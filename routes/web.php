@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(DashboardController::class)->group(function () {
     Route::get('/', 'index');
-    Route::get('/dashboard/about', 'about');
-    Route::get('/dashboard/contac', 'contac');
+    Route::get('/about', 'about');
+    Route::get('/contac', 'contac');
 });
 
 Route::resource('/dashboard/about', DashboardAboutController::class);
