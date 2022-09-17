@@ -52,7 +52,7 @@
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                     >
-                        Username
+                        {{ auth()->user()->name }}
                     </a>
                     <ul
                         class="dropdown-menu bg-blue-50 dropdown-menu-end"
@@ -64,9 +64,15 @@
                             >
                         </li>
                         <li>
-                            <a class="dropdown-item text-blue-700" href="#"
-                                >Log Out</a
-                            >
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button
+                                    type="submit"
+                                    class="dropdown-item text-blue-700"
+                                >
+                                    <i class="bi bi-box-arrow-left"></i> Logout
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </li>

@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardAboutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\LoginController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +19,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(DashboardController::class)->group(function () {
-    Route::get('/', 'index');
-    Route::get('/about', 'about');
-    Route::get('/contac', 'contac');
+    Route::get('/dashboard', 'index')->middleware('auth');
+    Route::get('/about', 'about')->middleware('auth');
+    Route::get('/contac', 'contac')->middleware('auth');
 });
 
-Route::resource('/dashboard/about', DashboardAboutController::class);
+Route::resource(
+    '/dashboard/about',
+    DashboardAboutController::class
+)->middleware('auth');
 
-Route::resource('/dashboard/user', DashboardUserController::class);
+Route::resource('/dashboard/user', DashboardUserController::class)->middleware(
+    'auth'
+);
 
-Route::get('/login', [LoginController::class, 'index']);
+// Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/', [LoginController::class, 'index'])
+    ->name('login')
+    ->middleware('guest');
