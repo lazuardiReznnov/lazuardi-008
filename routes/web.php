@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardAboutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LandingpageController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -33,9 +34,10 @@ Route::resource('/dashboard/user', DashboardUserController::class)->middleware(
     'auth'
 );
 
-// Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
-Route::get('/', [LoginController::class, 'index'])
+Route::get('/login', [LoginController::class, 'index'])
     ->name('login')
     ->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
+
+Route::get('/', [LandingpageController::class, 'index']);

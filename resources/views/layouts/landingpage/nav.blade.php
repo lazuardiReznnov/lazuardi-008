@@ -26,20 +26,6 @@
                         >Home</a
                     >
                 </li>
-                <li class="nav-item">
-                    <a
-                        class="nav-link {{ Request::is('dashboard/about*') ? 'active' : '' }} text-uppercase text-blue-200 font-semibold fs-14"
-                        href="/about"
-                        >About</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                        class="nav-link {{ Request::is('dashboard/contac*') ? 'active' : '' }} text-uppercase text-blue-200 font-semibold fs-14"
-                        href="/contac"
-                        >contac Us</a
-                    >
-                </li>
             </ul>
 
             <ul class="navbar-nav ms-auto">
@@ -80,7 +66,7 @@
                 @else
                 <li class="nav-item">
                     <a
-                        class="nav-link {{ Request::is('/login*') ? 'active' : '' }} text-uppercase text-blue-200 font-semibold fs-14"
+                        class="nav-link {{ Request::is('login*') ? 'active' : '' }} text-uppercase text-blue-200 font-semibold fs-14"
                         href="/login"
                         ><i class="bi bi-arrow-bar-left"></i> Login</a
                     >
