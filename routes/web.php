@@ -25,10 +25,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/contac', 'contac');
     });
     Route::resource('/dashboard/about', DashboardAboutController::class);
-    Route::resource(
-        '/dashboard/user',
-        DashboardUserController::class
-    )->middleware('auth');
+    Route::resource('/dashboard/user', DashboardUserController::class);
     Route::post('/logout', [LoginController::class, 'logout'])->middleware(
         'auth'
     );
