@@ -18,26 +18,31 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::controller(DashboardController::class)->group(function () {
-    Route::get('/dashboard', 'index')->middleware('auth');
-    Route::get('/about', 'about')->middleware('auth');
-    Route::get('/contac', 'contac')->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::controller(DashboardController::class)->group(function () {
+        Route::get('/dashboard', 'index');
+        Route::get('/about', 'about');
+        Route::get('/contac', 'contac');
+    });
+    Route::resource('/dashboard/about', DashboardAboutController::class);
+    Route::resource(
+        '/dashboard/user',
+        DashboardUserController::class
+    )->middleware('auth');
+    Route::post('/logout', [LoginController::class, 'logout'])->middleware(
+        'auth'
+    );
 });
 
-Route::resource(
-    '/dashboard/about',
-    DashboardAboutController::class
-)->middleware('auth');
+// Route::controller(DashboardController::class)->group(function () {
+//     Route::get('/dashboard', 'index')->middleware('auth');
+//     Route::get('/about', 'about')->middleware('auth');
+//     Route::get('/contac', 'contac')->middleware('auth');
+// });
 
-Route::resource('/dashboard/user', DashboardUserController::class)->middleware(
-    'auth'
-);
-
-Route::get('/login', [LoginController::class, 'index'])
-    ->name('login')
-    ->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'authenticate']);
+});
 
 Route::get('/', [LandingpageController::class, 'index']);
