@@ -16,7 +16,10 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!auth()->check() || auth()->username !== 'lazuardi.reznnov') {
+        if (
+            !auth()->check() ||
+            auth()->user()->username !== 'lazuardi.reznnov'
+        ) {
             abort(403);
         }
         return $next($request);
