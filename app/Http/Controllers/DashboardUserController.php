@@ -16,6 +16,9 @@ class DashboardUserController extends Controller
     {
         return view('dashboard.user.index', [
             'title' => 'User Management',
+            'users' => User::first()
+                ->paginate(10)
+                ->withQueryString(),
         ]);
     }
 
