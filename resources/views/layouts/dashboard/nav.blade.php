@@ -2,7 +2,7 @@
     <div class="container">
         <a
             class="navbar-brand text-blue-300 font-roboto font-semibold text-uppercase fs-18"
-            href="#"
+            href="/dashboard/"
             >Lazuardi<i class="bi bi-activity"></i>code</a
         >
         <button
@@ -20,9 +20,9 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a
-                        class="nav-link {{ Request::is('/*') ? 'active' : '' }}  text-uppercase text-blue-200 font-semibold fs-14"
+                        class="nav-link {{ Request::is('/dashboard*') ? 'active' : '' }}  text-uppercase text-blue-200 font-semibold fs-14"
                         aria-current="page"
-                        href="/"
+                        href="/dashboard"
                         >Home</a
                     >
                 </li>
