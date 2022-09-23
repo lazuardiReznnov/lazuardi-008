@@ -51,7 +51,10 @@ class DashboardUserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('dashboard.user.show', [
+            'data' => $user,
+            'title' => 'detail User',
+        ]);
     }
 
     /**

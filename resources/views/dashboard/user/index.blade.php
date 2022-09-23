@@ -64,7 +64,7 @@
                     </td>
                     <td>
                         <a
-                            href="/dashboard/user/{{ $user->id }}"
+                            href="/dashboard/user/{{ $user->username }}"
                             class="badge text-bg-success"
                             ><i class="bi bi-eye"></i
                         ></a>
