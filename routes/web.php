@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
         '/dashboard/user',
         DashboardUserController::class
     )->middleware('admin');
+
     Route::post('/logout', [LoginController::class, 'logout'])->middleware(
         'auth'
     );

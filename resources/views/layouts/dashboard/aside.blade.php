@@ -1,6 +1,8 @@
 <aside class="mt-1">
     <h2 class="fs-18 ms-2 my-2"><i class="bi bi-house-door"></i> DASHBOARD</h2>
     <hr />
+    <!-- Admin authoritas -->
+    @can('admin')
     <h3 class="fs-14 ms-2 my-2 text-uppercase">
         <i class="bi bi-tools"></i>Administrator
     </h3>
@@ -28,6 +30,9 @@
             >
         </li>
     </ul>
+    @endcan
+    <!-- Admin authoritas -->
+
     <h3 class="fs-14 ms-2 my-2 text-uppercase">
         <i class="bi bi-list-ul"></i> product
     </h3>
