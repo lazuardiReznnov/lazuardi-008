@@ -20,7 +20,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a
-                        class="nav-link {{ Request::is('/dashboard*') ? 'active' : '' }}  text-uppercase text-blue-200 font-semibold fs-14"
+                        class="nav-link {{ Request::is('dashboard*') ? 'active' : '' }}  text-uppercase text-blue-200 font-semibold fs-14"
                         aria-current="page"
                         href="/dashboard"
                         >Home</a
@@ -28,14 +28,14 @@
                 </li>
                 <li class="nav-item">
                     <a
-                        class="nav-link {{ Request::is('dashboard/about*') ? 'active' : '' }} text-uppercase text-blue-200 font-semibold fs-14"
+                        class="nav-link {{ Request::is('about*') ? 'active' : '' }} text-uppercase text-blue-200 font-semibold fs-14"
                         href="/about"
                         >About</a
                     >
                 </li>
                 <li class="nav-item">
                     <a
-                        class="nav-link {{ Request::is('dashboard/contac*') ? 'active' : '' }} text-uppercase text-blue-200 font-semibold fs-14"
+                        class="nav-link {{ Request::is('contac*') ? 'active' : '' }} text-uppercase text-blue-200 font-semibold fs-14"
                         href="/contac"
                         >contac Us</a
                     >
