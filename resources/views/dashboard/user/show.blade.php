@@ -2,13 +2,12 @@
 <h1
     class="text-blue-700 fs-24 fw-bold border-bottom border-primary mb-3 text-shadow"
 >
+    <a href="/dashboard/user" class="badge bg-blue-700"
+        ><i class="bi bi-backspace"></i
+    ></a>
     USER MANAGEMENT - Profil
 </h1>
-<div class="row ms-1 mb-3">
-    <div class="col-md">
-        <a href="/dashboard" class="btn btn-primary btn-sm">Back</a>
-    </div>
-</div>
+
 <div class="card p-4">
     <div class="row justify-content-md-center">
         <div class="col-md-5">

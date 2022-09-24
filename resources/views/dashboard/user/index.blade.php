@@ -1,24 +1,26 @@
 @extends('layouts.dashboard.main') @section('contain')
 <!-- dashboard Head -->
 
-<h1
-    class="text-blue-700 fs-24 fw-bold border-bottom border-primary text-shadow mb-3"
->
-    USER MANAGEMENT
-</h1>
 <!-- End dashboard Head -->
 <div class="row ms-1 mb-3">
     <div class="col-md">
-        <a href="/dashboard" class="btn btn-primary btn-sm">Back</a>
+        <h1
+            class="text-blue-700 fs-24 fw-bold border-bottom border-primary text-shadow mb-3"
+        >
+            <a href="/dashboard" class="badge bg-blue-700"
+                ><i class="bi bi-backspace"></i
+            ></a>
+            USER MANAGEMENT
+        </h1>
     </div>
 </div>
 <!-- body -->
-<div class="card bg-blue-100 text-blue-100 shadow mb-5">
+<div class="card text-blue-100 shadow mb-5">
     <div class="card-header font-semibold bg-blue-800">User List</div>
     <div class="card-body text-blue-50">
-        <div class="row mb-2">
+        <div class="row mb-1">
             <div class="col-sm ms-2 mb-4">
-                <button class="btn btn-primary btn-sm">Add</button>
+                <a class="btn bg-blue-700 text-blue-100 btn-sm"> Add </a>
             </div>
             <div class="col-sm-4 ms-2">
                 <div class="input-group mb-3">
@@ -39,6 +41,7 @@
                 </div>
             </div>
         </div>
+        <hr class="text-blue-900" />
         <table class="table text-blue-900 p-3">
             <thead>
                 <tr>
