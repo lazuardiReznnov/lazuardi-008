@@ -1,9 +1,14 @@
 @extends('layouts.dashboard.main') @section('contain')
 <h1
-    class="text-blue-700 fs-24 fw-bold border-bottom border-primary mb-3 text-shadow mb-5"
+    class="text-blue-700 fs-24 fw-bold border-bottom border-primary mb-3 text-shadow"
 >
     USER MANAGEMENT - Profil
 </h1>
+<div class="row ms-1 mb-3">
+    <div class="col-md">
+        <a href="/dashboard" class="btn btn-primary btn-sm">Back</a>
+    </div>
+</div>
 <div class="card p-4">
     <div class="row justify-content-md-center">
         <div class="col-md-5">

@@ -2,12 +2,16 @@
 <!-- dashboard Head -->
 
 <h1
-    class="text-blue-700 fs-24 fw-bold border-bottom border-primary mb-3 text-shadow mb-5"
+    class="text-blue-700 fs-24 fw-bold border-bottom border-primary text-shadow mb-3"
 >
     USER MANAGEMENT
 </h1>
 <!-- End dashboard Head -->
-
+<div class="row ms-1 mb-3">
+    <div class="col-md">
+        <a href="/dashboard" class="btn btn-primary btn-sm">Back</a>
+    </div>
+</div>
 <!-- body -->
 <div class="card bg-blue-100 text-blue-100 shadow mb-5">
     <div class="card-header font-semibold bg-blue-800">User List</div>

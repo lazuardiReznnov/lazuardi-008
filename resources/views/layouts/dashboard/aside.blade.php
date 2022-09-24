@@ -9,7 +9,7 @@
     <ul class="nav flex-column ms-2">
         <li class="nav-item bg-hover">
             <a
-                class="nav-link text-hover text-blue-200 font-semibold text-uppercase active fs-12 {{ Request::is('dashboard/user*') ? 'active' : '' }}"
+                class="nav-link text-hover text-blue-200 font-semibold text-uppercase active fs-12 {{ Request::is('/dashboard/user*') ? 'active' : '' }}"
                 aria-current="page"
                 href="/dashboard/user"
                 ><i class="bi bi-person"></i> User Management</a
@@ -17,7 +17,7 @@
         </li>
         <li class="nav-item bg-hover">
             <a
-                class="nav-link text-blue-200 font-semibold text-uppercase fs-12 text-hover {{ Request::is('dashboard/dashboardabout*') ? 'active' : '' }}"
+                class="nav-link text-blue-200 font-semibold text-uppercase fs-12 text-hover {{ Request::is('/dashboard/dashboardabout*') ? 'active' : '' }}"
                 href="/dashboard/dashboardabout"
                 ><i class="bi bi-link"></i> About Management</a
             >
