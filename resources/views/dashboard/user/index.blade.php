@@ -15,12 +15,31 @@
     </div>
 </div>
 <!-- body -->
+<!-- pesan -->
+@if(session()->has('loginError'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ session("loginError") }}
+
+    <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="close"
+    ></button>
+</div>
+@endif
+<!-- endpesan -->
 <div class="card text-blue-100 shadow mb-5">
     <div class="card-header font-semibold bg-blue-800">User List</div>
     <div class="card-body text-blue-50">
         <div class="row mb-1">
             <div class="col-sm ms-2 mb-4">
-                <a class="btn bg-blue-700 text-blue-100 btn-sm"> Add </a>
+                <a
+                    href="/dashboard/user/create"
+                    class="btn bg-blue-700 text-blue-100 btn-sm"
+                >
+                    Add
+                </a>
             </div>
             <div class="col-sm-4 ms-2">
                 <div class="input-group mb-3">

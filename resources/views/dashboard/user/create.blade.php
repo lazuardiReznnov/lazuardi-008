@@ -1,0 +1,92 @@
+@extends('layouts.dashboard.main') @section('contain')
+<!-- End dashboard Head -->
+<div class="row ms-1 mb-3">
+    <div class="col-md">
+        <h1
+            class="text-blue-700 fs-24 fw-bold border-bottom border-primary text-shadow mb-3"
+        >
+            <a href="/dashboard/user" class="badge bg-blue-700"
+                ><i class="bi bi-backspace"></i
+            ></a>
+            USER MANAGEMENT || REGISTER USER
+        </h1>
+    </div>
+</div>
+<div class="card bg-blue-100 text-blue-100 shadow mb-5 col-sm-8">
+    <div class="card-header font-semibold bg-blue-800">User Form</div>
+    <div class="card-body text-blue-50">
+        <form method="post" action="/dashboard/user">
+            @csrf
+            <div class="mb-3">
+                <label for="name" class="form-label text-blue-600">Name</label>
+                <input
+                    type="text"
+                    class="form-control form-control-sm @error('name') is-invalid @enderror"
+                    id="name"
+                    placeholder="name"
+                    name="name"
+                    required
+                />
+                @error('name')
+                <div id="name" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label text-blue-600"
+                    >Username</label
+                >
+                <input
+                    type="text"
+                    class="form-control form-control-sm @error('username') is-invalid @enderror"
+                    id="username"
+                    placeholder="username"
+                    name="username"
+                />
+                @error('username')
+                <div id="username" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label text-blue-600"
+                    >Email address</label
+                >
+                <input
+                    type="email"
+                    class="form-control form-control-sm @error('email') is-invalid @enderror"
+                    id="email"
+                    placeholder="name@example.com"
+                    name="email"
+                />
+                @error('email')
+                <div id="email" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="role" class="form-label text-blue-600">Role</label>
+                <select
+                    class="form-select form-select-sm"
+                    aria-label="role"
+                    name="role"
+                >
+                    <option selected>Open this select menu</option>
+                    <option value="1">Admin</option>
+                    <option value="0">User</option>
+                </select>
+            </div>
+            <div class="mb-3 ms-3 mt-5">
+                <button type="submit" class="btn bg-blue-800 text-blue-50">
+                    Save
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@endsection

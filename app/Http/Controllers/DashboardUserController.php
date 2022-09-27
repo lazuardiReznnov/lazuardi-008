@@ -29,7 +29,9 @@ class DashboardUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.user.create', [
+            'title' => 'Register User',
+        ]);
     }
 
     /**
