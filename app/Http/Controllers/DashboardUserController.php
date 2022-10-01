@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardUserController extends Controller
 {
@@ -42,7 +43,21 @@ class DashboardUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'username' => 'required|unique:users',
+            'password' => 'required',
+            'email' => 'required|email:dns',
+            'role' => 'required',
+        ]);
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        User::create($validatedData);
+
+        return redirect('dashboard/user')->with(
+            'success',
+            'User Has Been Registrated'
+        );
     }
 
     /**

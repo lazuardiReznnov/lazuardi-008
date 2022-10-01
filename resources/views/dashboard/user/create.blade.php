@@ -26,6 +26,7 @@
                     placeholder="name"
                     name="name"
                     required
+                    value="{{ old('name') }}"
                 />
                 @error('name')
                 <div id="name" class="invalid-feedback">
@@ -43,12 +44,29 @@
                     id="username"
                     placeholder="username"
                     name="username"
+                    value="{{ old('username') }}"
                 />
                 @error('username')
                 <div id="username" class="invalid-feedback">
                     {{ $message }}
                 </div>
 
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label text-blue-600"
+                    >Password</label
+                >
+                <input
+                    type="password"
+                    class="form-control form-control-sm @error('password') is-invalid @enderror"
+                    id="password"
+                    name="password"
+                />
+                @error('password')
+                <div id="password" class="invalid-feedback">
+                    {{ $message }}
+                </div>
                 @enderror
             </div>
             <div class="mb-3">
