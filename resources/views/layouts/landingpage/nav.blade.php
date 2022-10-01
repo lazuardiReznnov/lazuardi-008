@@ -19,12 +19,21 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    @auth
+                    <a
+                        class="nav-link {{ Request::is('/dashboard*') ? 'active' : '' }}  text-uppercase text-blue-200 font-semibold fs-14"
+                        aria-current="page"
+                        href="/dashboard"
+                        >Home</a
+                    >
+                    @else
                     <a
                         class="nav-link {{ Request::is('/*') ? 'active' : '' }}  text-uppercase text-blue-200 font-semibold fs-14"
                         aria-current="page"
                         href="/"
                         >Home</a
                     >
+                    @endauth
                 </li>
             </ul>
 
