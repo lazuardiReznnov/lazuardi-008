@@ -105,12 +105,25 @@
                             class="badge text-bg-success"
                             ><i class="bi bi-eye"></i
                         ></a>
-                        <a href="#" class="badge text-bg-warning"
+                        <a
+                            href="/dashboard/user/{{ $user->username }}/edit"
+                            class="badge text-bg-warning"
                             ><i class="bi bi-pencil-square"></i
                         ></a>
-                        <a href="#" class="badge text-bg-danger"
-                            ><i class="bi bi-file-x-fill"></i
-                        ></a>
+
+                        <form
+                            action="/dashboard/user/{{ $user->username }}"
+                            method="post"
+                            class="d-inline"
+                        >
+                            @method('delete') @csrf
+                            <button
+                                class="badge bg-danger border-0"
+                                onclick="return confirm('are You sure ??')"
+                            >
+                                <i class="bi bi-file-x-fill"></i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach @else

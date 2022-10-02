@@ -8,15 +8,15 @@
             <a href="/dashboard/user" class="badge bg-blue-700"
                 ><i class="bi bi-backspace"></i
             ></a>
-            USER MANAGEMENT || REGISTER USER
+            USER MANAGEMENT || {{ $title }}
         </h1>
     </div>
 </div>
 <div class="card bg-blue-100 text-blue-100 shadow mb-5 col-sm-8">
     <div class="card-header font-semibold bg-blue-800">User Form</div>
     <div class="card-body text-blue-50">
-        <form method="post" action="/dashboard/user">
-            @csrf
+        <form method="post" action="/dashboard/user/{{ $data->username }}">
+            @method('put') @csrf
             <div class="mb-3">
                 <label for="name" class="form-label text-blue-600">Name</label>
                 <input
@@ -26,7 +26,7 @@
                     placeholder="name"
                     name="name"
                     required
-                    value="{{ old('name') }}"
+                    value="{{ old('name',$data->name) }}"
                 />
                 @error('name')
                 <div id="name" class="invalid-feedback">
@@ -44,7 +44,8 @@
                     id="username"
                     placeholder="username"
                     name="username"
-                    value="{{ old('username') }}"
+                    value="{{ old('username',$data->username) }}"
+                    disabled
                 />
                 @error('username')
                 <div id="username" class="invalid-feedback">
@@ -79,6 +80,7 @@
                     id="email"
                     placeholder="name@example.com"
                     name="email"
+                    value="{{ old('email',$data->email) }}"
                 />
                 @error('email')
                 <div id="email" class="invalid-feedback">
@@ -94,13 +96,18 @@
                     name="is_admin"
                 >
                     <option selected>Open this select menu</option>
-                    <option value="1">Admin</option>
+                    @if(old('role',$data->role)==$data->role)
+                    <option selected value="{{ $data->is_admin }}">
+                        @if($data->is_admin==1) Admin @else User @endif
+                    </option>
+                    @endif
                     <option value="0">User</option>
+                    <option value="1">Admin</option>
                 </select>
             </div>
             <div class="mb-3 ms-3 mt-5">
                 <button type="submit" class="btn bg-blue-800 text-blue-50">
-                    Save
+                    Update
                 </button>
             </div>
         </form>

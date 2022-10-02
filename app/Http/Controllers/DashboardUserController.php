@@ -82,7 +82,10 @@ class DashboardUserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('dashboard.user.edit', [
+            'data' => $user,
+            'title' => 'EDIT USER',
+        ]);
     }
 
     /**
@@ -94,7 +97,23 @@ class DashboardUserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $rules = [
+            'name' => 'required',
+            'email' => 'required|email:dns',
+            'is_admin' => 'required',
+        ];
+        if ($request->password != 0) {
+            $rules['password'] = 'required';
+        }
+
+        $validatedData = $request->validate($rules);
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        user::where('id', $user->id)->update($validatedData);
+
+        return redirect('dashboard/user')->with(
+            'success',
+            'User Has Been Updated'
+        );
     }
 
     /**
@@ -105,6 +124,10 @@ class DashboardUserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        User::destroy($user->id);
+        return redirect('dashboard/user')->with(
+            'success',
+            'User Has Been Delete'
+        );
     }
 }

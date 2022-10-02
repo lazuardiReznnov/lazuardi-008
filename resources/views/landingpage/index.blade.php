@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-md mt-5">
         <div class="card p-5 mt-2 mb-2">
-            <div class="row mb-4">
+            <div class="row mb-4 min-vh-100">
                 <div class="col-md align-self-center">
                     <h3
                         class="text-center text-uppercase text-blue-700 text-shadow"
