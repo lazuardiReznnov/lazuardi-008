@@ -105,6 +105,31 @@
                     <option value="1">Admin</option>
                 </select>
             </div>
+            <div class="mb-3 col-5">
+                <label for="pic" class="form-label text-blue-600">Photo</label>
+                @if($data->pic != 0)
+                <img
+                    width="200"
+                    src="{{ asset/photo/$data->pic }}"
+                    class="img-fluid mb-2"
+                    alt=""
+                />
+                @else
+                <img width="200" class="img-preview img-fluid mb-2" alt="" />
+                @endif
+                <input
+                    class="form-control form-control-sm @error('pic') is_invalid @enderror"
+                    id="pic"
+                    type="file"
+                    name="pic"
+                    onchange="previewImage()"
+                />
+                @error('pic')
+                <div id="pic" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
             <div class="mb-3 ms-3 mt-5">
                 <button type="submit" class="btn bg-blue-800 text-blue-50">
                     Update
