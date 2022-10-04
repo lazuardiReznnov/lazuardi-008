@@ -15,7 +15,11 @@
 <div class="card bg-blue-100 text-blue-100 shadow mb-5 col-sm-8">
     <div class="card-header font-semibold bg-blue-800">User Form</div>
     <div class="card-body text-blue-50">
-        <form method="post" action="/dashboard/user">
+        <form
+            method="post"
+            action="/dashboard/user"
+            enctype="multipart/form-data"
+        >
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label text-blue-600">Name</label>
@@ -91,12 +95,28 @@
                 <select
                     class="form-select form-select-sm"
                     aria-label="role"
-                    name="role"
+                    name="is_admin"
                 >
                     <option selected>Open this select menu</option>
                     <option value="1">Admin</option>
                     <option value="0">User</option>
                 </select>
+            </div>
+            <div class="mb-3">
+                <label for="pic" class="form-label text-blue-600">Photo</label>
+                <img class="img-preview img-fluid" alt="" />
+                <input
+                    class="form-control form-control-sm @error('pic') is_invalid @enderror"
+                    id="pic"
+                    type="file"
+                    name="pic"
+                    onchange="previewImage()"
+                />
+                @error('pic')
+                <div id="pic" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="mb-3 ms-3 mt-5">
                 <button type="submit" class="btn bg-blue-800 text-blue-50">
@@ -106,5 +126,18 @@
         </form>
     </div>
 </div>
+<script>
+    function previewImage() {
+        const image = document.querySelector("#pic");
+        const imgPreview = document.querySelector(".img-preview");
+        imgPreview.style.display = "block";
 
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        };
+    }
+</script>
 @endsection
