@@ -59,5 +59,6 @@
             integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
             crossorigin="anonymous"
         ></script>
+        <script src="/asset/js/lazuardi-008.js"></script>
     </body>
 </html>

@@ -102,9 +102,9 @@
                     <option value="0">User</option>
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 col-5">
                 <label for="pic" class="form-label text-blue-600">Photo</label>
-                <img class="img-preview img-fluid" alt="" />
+                <img width="200" class="img-preview img-fluid mb-2" alt="" />
                 <input
                     class="form-control form-control-sm @error('pic') is_invalid @enderror"
                     id="pic"
@@ -126,18 +126,5 @@
         </form>
     </div>
 </div>
-<script>
-    function previewImage() {
-        const image = document.querySelector("#pic");
-        const imgPreview = document.querySelector(".img-preview");
-        imgPreview.style.display = "block";
 
-        const oFReader = new FileReader();
-        oFReader.readAsDataURL(image.files[0]);
-
-        oFReader.onload = function (oFREvent) {
-            imgPreview.src = oFREvent.target.result;
-        };
-    }
-</script>
 @endsection
