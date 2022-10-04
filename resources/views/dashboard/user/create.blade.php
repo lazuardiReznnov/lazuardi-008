@@ -15,7 +15,11 @@
 <div class="card bg-blue-100 text-blue-100 shadow mb-5 col-sm-8">
     <div class="card-header font-semibold bg-blue-800">User Form</div>
     <div class="card-body text-blue-50">
-        <form method="post" action="/dashboard/user">
+        <form
+            method="post"
+            action="/dashboard/user"
+            enctype="multipart/form-data"
+        >
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label text-blue-600">Name</label>
@@ -97,6 +101,22 @@
                     <option value="1">Admin</option>
                     <option value="0">User</option>
                 </select>
+            </div>
+            <div class="mb-3 col-5">
+                <label for="pic" class="form-label text-blue-600">Photo</label>
+                <img width="200" class="img-preview img-fluid mb-2" alt="" />
+                <input
+                    class="form-control form-control-sm @error('pic') is_invalid @enderror"
+                    id="pic"
+                    type="file"
+                    name="pic"
+                    onchange="previewImage()"
+                />
+                @error('pic')
+                <div id="pic" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="mb-3 ms-3 mt-5">
                 <button type="submit" class="btn bg-blue-800 text-blue-50">

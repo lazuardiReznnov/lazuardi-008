@@ -48,8 +48,13 @@ class DashboardUserController extends Controller
             'username' => 'required|unique:users',
             'password' => 'required',
             'email' => 'required|email:dns',
-            'role' => 'required',
+            'is_admin' => 'required',
+            'pic' => 'image|file|max:1024',
         ]);
+
+        if ($request->file('pic')) {
+            $validatedData['pic'] = $request->file('pic')->store('image');
+        }
 
         $validatedData['password'] = Hash::make($validatedData['password']);
         User::create($validatedData);
