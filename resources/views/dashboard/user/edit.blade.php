@@ -115,7 +115,7 @@
                 <img
                     width="200"
                     src="{{ asset('storage/'. $data->pic) }}"
-                    class="img-fluid mb-2 d-block"
+                    class="img-fluid img-preview mb-2 d-block"
                     alt=""
                 />
                 <input type="hidden" name="old_pic" value="{{ $data->pic }}" />

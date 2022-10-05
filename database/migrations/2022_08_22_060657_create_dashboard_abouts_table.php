@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->string('fb')->nullable();
             $table->string('ln')->nullable();
             $table->string('ins')->nullable();
-            $table->string('img')->nullable();
+            $table->string('pic')->nullable();
             $table->timestamps();
         });
     }

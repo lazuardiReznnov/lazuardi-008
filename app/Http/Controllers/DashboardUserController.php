@@ -143,6 +143,9 @@ class DashboardUserController extends Controller
     public function destroy(User $user)
     {
         User::destroy($user->id);
+        if ($user->pic) {
+            storage::delete($user->pic);
+        }
         return redirect('dashboard/user')->with(
             'success',
             'User Has Been Delete'
