@@ -16,6 +16,7 @@ class DashboardAboutController extends Controller
     {
         return view('dashboard.about.index', [
             'title' => 'Dashboard | About Management',
+            'data' => DashboardAbout::get()->first(),
         ]);
     }
 
