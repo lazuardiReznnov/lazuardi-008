@@ -15,7 +15,11 @@
 <div class="card bg-blue-100 text-blue-100 shadow mb-5 col-sm-8">
     <div class="card-header font-semibold bg-blue-800">User Form</div>
     <div class="card-body text-blue-50">
-        <form method="post" action="/dashboard/user/{{ $data->username }}">
+        <form
+            method="post"
+            action="/dashboard/user/{{ $data->username }}"
+            enctype="multipart/form-data"
+        >
             @method('put') @csrf
             <div class="mb-3">
                 <label for="name" class="form-label text-blue-600">Name</label>
@@ -107,18 +111,19 @@
             </div>
             <div class="mb-3 col-5">
                 <label for="pic" class="form-label text-blue-600">Photo</label>
-                @if($data->pic != 0)
+                @if($data->pic)
                 <img
                     width="200"
-                    src="{{ asset/photo/$data->pic }}"
-                    class="img-fluid mb-2"
+                    src="{{ asset('storage/'. $data->pic) }}"
+                    class="img-fluid img-preview mb-2 d-block"
                     alt=""
                 />
+                <input type="hidden" name="old_pic" value="{{ $data->pic }}" />
                 @else
                 <img width="200" class="img-preview img-fluid mb-2" alt="" />
                 @endif
                 <input
-                    class="form-control form-control-sm @error('pic') is_invalid @enderror"
+                    class="form-control form-control-sm @error('pic') is-invalid @enderror"
                     id="pic"
                     type="file"
                     name="pic"

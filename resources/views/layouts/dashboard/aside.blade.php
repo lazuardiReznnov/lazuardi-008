@@ -18,7 +18,7 @@
         <li class="nav-item bg-hover">
             <a
                 class="nav-link text-blue-200 font-semibold text-uppercase fs-12 text-hover {{ Request::is('/dashboard/dashboardabout*') ? 'active' : '' }}"
-                href="/dashboard/dashboardabout"
+                href="/dashboard/about"
                 ><i class="bi bi-link"></i> About Management</a
             >
         </li>

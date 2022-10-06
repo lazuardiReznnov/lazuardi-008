@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\support\Facades\Storage;
 
 class DashboardUserController extends Controller
 {
@@ -53,7 +54,7 @@ class DashboardUserController extends Controller
         ]);
 
         if ($request->file('pic')) {
-            $validatedData['pic'] = $request->file('pic')->store('image');
+            $validatedData['pic'] = $request->file('pic')->store('user-image');
         }
 
         $validatedData['password'] = Hash::make($validatedData['password']);
@@ -106,13 +107,25 @@ class DashboardUserController extends Controller
             'name' => 'required',
             'email' => 'required|email:dns',
             'is_admin' => 'required',
+            'pic' => 'image|file|max:1024',
         ];
         if ($request->password != 0) {
             $rules['password'] = 'required';
         }
 
         $validatedData = $request->validate($rules);
-        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        if ($request->file('pic')) {
+            if ($request->old_pic) {
+                storage::delete($request->old_pic);
+            }
+            $validatedData['pic'] = $request->file('pic')->store('user-image');
+        }
+
+        if ($request->password) {
+            $validatedData['password'] = Hash::make($validatedData['password']);
+        }
+
         user::where('id', $user->id)->update($validatedData);
 
         return redirect('dashboard/user')->with(
@@ -130,6 +143,9 @@ class DashboardUserController extends Controller
     public function destroy(User $user)
     {
         User::destroy($user->id);
+        if ($user->pic) {
+            storage::delete($user->pic);
+        }
         return redirect('dashboard/user')->with(
             'success',
             'User Has Been Delete'

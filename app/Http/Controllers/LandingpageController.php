@@ -9,7 +9,7 @@ class LandingpageController extends Controller
     public function index()
     {
         return view('landingpage.index', [
-            'title' => 'Landing Page || Lazuardi Code',
+            'title' => 'Landing Page',
         ]);
     }
 }

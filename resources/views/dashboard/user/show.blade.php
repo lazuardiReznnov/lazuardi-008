@@ -11,12 +11,22 @@
 <div class="card p-4">
     <div class="row justify-content-md-center">
         <div class="col-md-5">
+            @if($data->pic != 0)
+            <img
+                width="200"
+                class="rounded-circle d-block shadow my-3"
+                src="{{ asset('storage/'. $data->pic) }}"
+                alt=""
+            />
+            @else
+
             <img
                 class="rounded-circle d-block shadow my-3"
                 src="http://source.unsplash.com/200x200?computer"
                 alt=""
                 width="200"
             />
+            @endif
         </div>
         <div class="col-md-6 align-seft-center">
             <h3
