@@ -41,19 +41,77 @@
             </div>
             @enderror
         </div>
-        <div class="mb-3">
+        <div class="mb-3 col-5">
             <label for="title" class="form-label text-blue-600">Title</label>
-            <h4>{$data->title}</h4>
+            <h4 class="text-uppercase text-blue-700 text-shadow">
+                {!! $data->title; !!}
+            </h4>
             <input
                 type="text"
                 class="form-control form-control-sm @error('title') is-invalid @enderror"
                 id="title"
-                placeholder="name@example.com"
+                placeholder="Change Title Here"
                 name="title"
-                value="{{ old('title') }}"
+                value="{{ old('title',$data->title) }}"
             />
             @error('title')
             <div id="title" class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+        <div class="mb-3 col-5">
+            <label for="smallTitle" class="form-label text-blue-600"
+                >Small Title</label
+            >
+            <p class="text-blue-300 b-3 fs-14">
+                {{ $data->smallTitle; }}
+            </p>
+            <input
+                type="text"
+                class="form-control form-control-sm @error('smallTitle') is-invalid @enderror"
+                id="smallTitle"
+                placeholder="Change Small Title Here"
+                name="smallTitle"
+                value="{{ old('smallTitle',$data->smallTitle) }}"
+            />
+            @error('title')
+            <div id="smallTitle" class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+        <div class="mb-3 col-5">
+            <label for="descriptions1" class="form-label text-blue-600"
+                >descriptions1</label
+            >
+            <textarea
+                type="text"
+                class="form-control form-control-sm @error('descriptions1') is-invalid @enderror"
+                id="descriptions1"
+                placeholder="Change Small Title Here"
+                name="descriptions1"
+                >{{ old('descriptions1',$data->descriptions1) }}
+            </textarea>
+            @error('descriptions1')
+            <div id="descriptions1" class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+        <div class="mb-3 col-5">
+            <label for="descriptions2" class="form-label text-blue-600"
+                >descriptions2</label
+            >
+            <textarea
+                class="form-control form-control-sm @error('descriptions2') is-invalid @enderror"
+                id="descriptions2"
+                placeholder="Change Small Title Here"
+                name="descriptions2"
+                >{{ old('descriptions2',$data->descriptions2) }}
+            </textarea>
+            @error('descriptions2')
+            <div id="descriptions2" class="invalid-feedback">
                 {{ $message }}
             </div>
             @enderror

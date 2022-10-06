@@ -15,7 +15,7 @@ class DashboardAboutController extends Controller
     public function index()
     {
         return view('dashboard.about.index', [
-            'title' => 'Dashboard | About Management',
+            'title' => 'About Management',
             'data' => DashboardAbout::get()->first(),
         ]);
     }
