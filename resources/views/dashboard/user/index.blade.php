@@ -91,15 +91,17 @@
                     <th scope="row">
                         {{ ($users->currentpage()-1) * $users->perpage() + $loop->index + 1 }}
                     </th>
-                    @if($user->pic != 0)
                     <td>
+                        @if($user->pic != 0)
                         <img
                             width="75"
                             src="{{ asset('storage/'. $user->pic) }}"
                             alt=""
                         />
+                        @else
+                        {{ "-" }}
+                        @endif
                     </td>
-                    @endif
                     <td>{{ $user->username }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
