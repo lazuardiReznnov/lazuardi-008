@@ -147,3 +147,7 @@ body {
 .bg-hover-card:hover {
     background-color: var(--bg-blue-200);
 }
+
+trix-toolbar[data-trix-button-group="file-tool"] {
+    display: none;
+}
