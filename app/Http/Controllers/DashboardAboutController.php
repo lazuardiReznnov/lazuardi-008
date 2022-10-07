@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DashboardAbout;
 use Illuminate\Http\Request;
-
+use Illuminate\support\Facades\Storage;
 class DashboardAboutController extends Controller
 {
     /**
@@ -72,7 +72,32 @@ class DashboardAboutController extends Controller
      */
     public function update(Request $request, DashboardAbout $dashboardAbout)
     {
-        //
+        // dd($request->img);
+        $rules = [
+            'title' => 'required',
+            'smallTitle' => 'required',
+            'descriptions1' => 'required',
+            'descriptions2' => 'required',
+            'fb' => 'required',
+            'ln' => 'required',
+            'ins' => 'required',
+            'img' => 'image|file|max:1024',
+        ];
+        $validatedData = $request->validate($rules);
+        if ($request->file('img')) {
+            if ($request->old_img) {
+                storage::delete($request->old_img);
+            }
+            $validatedData['img'] = $request->file('img')->store('about-image');
+        }
+
+        DashboardAbout::where('id', $dashboardAbout->id)->update(
+            $validatedData
+        );
+        return redirect('dashboard/dashboardAbout')->with(
+            'success',
+            'Data Has Been Updated'
+        );
     }
 
     /**

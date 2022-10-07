@@ -1,5 +1,3 @@
-
-
 @extends('layouts.dashboard.main') @section('contain')
 <!-- dashboard Head -->
 <div class="card p-3">
@@ -11,18 +9,26 @@
                 About
             </h1>
         </div>
-        
     </div>
 </div>
 <!-- End dashboard Head -->
 <!-- Jumbotron -->
 <div class="card mt-3 p-4 border">
+    @if($data->img)
+    <img
+        class="rounded-circle mx-auto d-block shadow my-3"
+        src="{{ asset('storage/'. $data->img) }}"
+        alt=""
+        width="300"
+    />
+    @else
     <img
         class="rounded-circle mx-auto d-block shadow my-3"
         src="http://source.unsplash.com/200x200?computer"
         alt=""
         width="300"
     />
+    @endif
 
     <h3 class="text-center text-uppercase text-blue-700 text-shadow">
         {!! $data->title; !!}
@@ -31,10 +37,8 @@
         {{ $data->smallTitle }}
     </p>
     <div class="row justify-content-center">
-        <div class="col-md-5">
-            <p class="fs-12 text-blue-400 font-reguler">
-              {{ $data->descriptions1 }}
-            </p>
+        <div class="col-md-5 fs-12 text-blue-400 font-reguler">
+            {!! $data->descriptions1; !!}
         </div>
         <div class="col-md-5">
             <p class="fs-12 text-blue-400 font-reguler">
@@ -46,7 +50,9 @@
         <a href="{{ $data->fb }}" class="badge bg-blue-300 text-decoration-none"
             ><i class="bi bi-facebook"></i></a
         >|
-        <a href="{{ $data->ins }}" class="badge bg-blue-300 text-decoration-none"
+        <a
+            href="{{ $data->ins }}"
+            class="badge bg-blue-300 text-decoration-none"
             ><i class="bi bi-instagram"></i></a
         >|
         <a href="{{ $data->ln }}" class="badge bg-blue-300 text-decoration-none"
@@ -57,16 +63,7 @@
 <!-- endJumbotron -->
 <!-- modal form -->
 <!-- Button trigger modal -->
-<button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
->
-    Launch demo modal
-</button>
 
 <!-- Modal -->
 
-</div>
 @endsection

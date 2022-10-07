@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('admin')->group(function () {
         Route::resource('/dashboard/user', DashboardUserController::class);
         Route::resource(
-            '/dashboard/about',
+            '/dashboard/dashboardAbout',
             DashboardAboutController::class
         )->except(['store', 'show', 'edit', 'destroy', 'create']);
     });

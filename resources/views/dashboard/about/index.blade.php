@@ -15,32 +15,49 @@
 
 <!-- list Menu Dashboard -->
 <div class="card p-3">
-    <form action="" method="post" enctype="multipart/form-data">
+    @if(session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session("success") }}
+
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="close"
+        ></button>
+    </div>
+    @endif
+    <form
+        action="/dashboard/dashboardAbout/{{ $data->id }}"
+        method="post"
+        enctype="multipart/form-data"
+    >
         @csrf @method('put')
         <div class="row mb-3">
             <div class="col-md">
-                <label for="pic" class="form-label text-blue-600">Photo</label>
-                @if($data->pic)
+                <label for="img" class="form-label text-blue-600">Photo</label>
+                @if($data->img)
                 <img
                     width="200"
-                    src="{{ asset('storage/'. $data->pic) }}"
+                    src="{{ asset('storage/'. $data->img) }}"
                     class="img-preview img-fluid mb-2 d-block"
                     alt="about Image"
                 />
+                <input type="hidden" name="old_img" value="{{ $data->img }}" />
                 @else
                 <img width="200" class="img-preview img-fluid mb-2" alt="" />
                 @endif
             </div>
             <div class="col-md">
                 <input
-                    class="form-control form-control-sm @error('pic') is_invalid @enderror"
+                    class="form-control form-control-sm @error('img') is_invalid @enderror"
                     id="pic"
                     type="file"
-                    name="pic"
+                    name="img"
                     onchange="previewImage()"
                 />
-                @error('pic')
-                <div id="pic" class="invalid-feedback">
+                @error('img')
+                <div id="img" class="invalid-feedback">
                     {{ $message }}
                 </div>
                 @enderror
@@ -106,8 +123,8 @@
                     input="descriptions1"
                     >{{ $data->descriptions1 }}</trix-editor
                 >
-                @error('description1')
-                <div id="description1" class="invalid-feedback">
+                @error('descriptions1')
+                <div id="descriptions1" class="invalid-feedback">
                     {{ $message }}
                 </div>
                 @enderror
@@ -116,7 +133,7 @@
         <hr />
         <div class="row mb-3 justify-content-between">
             <div class="col-md-5">
-                <label for="description2" class="form-label text-blue-600"
+                <label for="descriptions2" class="form-label text-blue-600"
                     >description2</label
                 >
                 <p>{!! $data->descriptions2 !!}</p>
@@ -127,8 +144,8 @@
                     input="descriptions2"
                     >{{ $data->descriptions2 }}</trix-editor
                 >
-                @error('description2')
-                <div id="description2" class="invalid-feedback">
+                @error('descriptions2')
+                <div id="descriptions2" class="invalid-feedback">
                     {{ $message }}
                 </div>
                 @enderror
@@ -165,7 +182,7 @@
         </div>
         <div class="row mb-3">
             <div class="col-md">
-                <label for="ins" class="form-label text-blue-600"
+                <label for="ln" class="form-label text-blue-600"
                     >Linkind Link</label
                 >
                 <p>
@@ -180,8 +197,8 @@
                 <input
                     type="text"
                     class="form-control form-control-sm @error('ln') is-invalid @enderror"
-                    id="in"
-                    name="in"
+                    id="ln"
+                    name="ln"
                     value="{{ old('ln',$data->ln) }}"
                 />
                 @error('ln')
@@ -208,8 +225,8 @@
                 <input
                     type="text"
                     class="form-control form-control-sm @error('ins') is-invalid @enderror"
-                    id="in"
-                    name="in"
+                    id="ins"
+                    name="ins"
                     value="{{ old('ins',$data->ins) }}"
                 />
                 @error('ins')
@@ -219,61 +236,12 @@
                 @enderror
             </div>
         </div>
-        <div class="mb-3 col-5">
-            <label for="smallTitle" class="form-label text-blue-600"
-                >Small Title</label
-            >
-            <p class="text-blue-300 b-3 fs-14">
-                {{ $data->smallTitle; }}
-            </p>
-            <input
-                type="text"
-                class="form-control form-control-sm @error('smallTitle') is-invalid @enderror"
-                id="smallTitle"
-                placeholder="Change Small Title Here"
-                name="smallTitle"
-                value="{{ old('smallTitle',$data->smallTitle) }}"
-            />
-            @error('title')
-            <div id="smallTitle" class="invalid-feedback">
-                {{ $message }}
+        <div class="row mb-3 ms-1">
+            <div class="col-md">
+                <button class="btn btn-primary" type="submit" name="save">
+                    Update
+                </button>
             </div>
-            @enderror
-        </div>
-        <div class="mb-3 col-5">
-            <label for="descriptions1" class="form-label text-blue-600"
-                >descriptions1</label
-            >
-            <textarea
-                type="text"
-                class="form-control form-control-sm @error('descriptions1') is-invalid @enderror"
-                id="descriptions1"
-                placeholder="Change Small Title Here"
-                name="descriptions1"
-                >{{ old('descriptions1',$data->descriptions1) }}
-            </textarea>
-            @error('descriptions1')
-            <div id="descriptions1" class="invalid-feedback">
-                {{ $message }}
-            </div>
-            @enderror
-        </div>
-        <div class="mb-3 col-5">
-            <label for="descriptions2" class="form-label text-blue-600"
-                >descriptions2</label
-            >
-            <textarea
-                class="form-control form-control-sm @error('descriptions2') is-invalid @enderror"
-                id="descriptions2"
-                placeholder="Change Small Title Here"
-                name="descriptions2"
-                >{{ old('descriptions2',$data->descriptions2) }}
-            </textarea>
-            @error('descriptions2')
-            <div id="descriptions2" class="invalid-feedback">
-                {{ $message }}
-            </div>
-            @enderror
         </div>
     </form>
 </div>
