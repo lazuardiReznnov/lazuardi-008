@@ -16,48 +16,146 @@
 <!-- list Menu Dashboard -->
 <div class="card p-3">
     <form action="" method="post" enctype="multipart/form-data">
-        <div class="mb-3 col-5">
-            <label for="pic" class="form-label text-blue-600">Photo</label>
-            @if($data->pic)
-            <img
-                width="200"
-                src="{{ asset('storage/'. $data->pic) }}"
-                class="img-preview img-fluid mb-2 d-block"
-                alt="about Image"
-            />
-            @else
-            <img width="200" class="img-preview img-fluid mb-2" alt="" />
-            @endif
-            <input
-                class="form-control form-control-sm @error('pic') is_invalid @enderror"
-                id="pic"
-                type="file"
-                name="pic"
-                onchange="previewImage()"
-            />
-            @error('pic')
-            <div id="pic" class="invalid-feedback">
-                {{ $message }}
+        <div class="row mb-3">
+            <div class="col-md">
+                <label for="pic" class="form-label text-blue-600">Photo</label>
+                @if($data->pic)
+                <img
+                    width="200"
+                    src="{{ asset('storage/'. $data->pic) }}"
+                    class="img-preview img-fluid mb-2 d-block"
+                    alt="about Image"
+                />
+                @else
+                <img width="200" class="img-preview img-fluid mb-2" alt="" />
+                @endif
             </div>
-            @enderror
+            <div class="col-md">
+                <input
+                    class="form-control form-control-sm @error('pic') is_invalid @enderror"
+                    id="pic"
+                    type="file"
+                    name="pic"
+                    onchange="previewImage()"
+                />
+                @error('pic')
+                <div id="pic" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="title" class="form-label text-blue-600">Title</label>
-            <h4>{$data->title}</h4>
-            <input
-                type="text"
-                class="form-control form-control-sm @error('title') is-invalid @enderror"
-                id="title"
-                placeholder="name@example.com"
-                name="title"
-                value="{{ old('title') }}"
-            />
-            @error('title')
-            <div id="title" class="invalid-feedback">
-                {{ $message }}
+        <hr />
+        <div class="row mb-3">
+            <div class="col-md">
+                <label for="title" class="form-label text-blue-600"
+                    >Title</label
+                >
+                <h4>{!! $data->title !!}</h4>
             </div>
-            @enderror
+            <div class="col-md">
+                <input
+                    type="text"
+                    class="form-control form-control-sm @error('title') is-invalid @enderror"
+                    id="title"
+                    placeholder="name@example.com"
+                    name="title"
+                    value="{{ old('title',$data->title) }}"
+                />
+                @error('title')
+                <div id="title" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md">
+                <label for="smallTitle" class="form-label text-blue-600"
+                    >Small Title</label
+                >
+                <p>{!! $data->smallTitle !!}</p>
+            </div>
+            <div class="col-md">
+                <input
+                    type="text"
+                    class="form-control form-control-sm @error('smallTitle') is-invalid @enderror"
+                    id="smallTitle"
+                    placeholder="name@example.com"
+                    name="smallTitle"
+                    value="{{ old('smallTitle',$data->smallTitle) }}"
+                />
+                @error('smallTitle')
+                <div id="smallTitle" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
         </div>
     </form>
+
+    <!-- <div class="row">
+        <div class="col-md">
+            <div class="mb-3 col-5">
+              
+            </div>
+            <div class="mb-3 col-5">
+                <label for="title" class="form-label text-blue-600"
+                    >Title</label
+                >
+                <h4>{!! $data->title !!}</h4>
+            </div>
+        </div>
+        <div class="col-md">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="mb-3 col-5">
+                    <label for="pic" class="form-label text-blue-600"
+                        >Photo</label
+                    >
+                    @if($data->pic)
+                    <img
+                        width="200"
+                        src="{{ asset('storage/'. $data->pic) }}"
+                        class="img-preview img-fluid mb-2 d-block"
+                        alt="about Image"
+                    />
+                    @else
+                    <img
+                        width="200"
+                        class="img-preview img-fluid mb-2"
+                        alt=""
+                    />
+                    @endif
+                    <input
+                        class="form-control form-control-sm @error('pic') is_invalid @enderror"
+                        id="pic"
+                        type="file"
+                        name="pic"
+                        onchange="previewImage()"
+                    />
+                    @error('pic')
+                    <div id="pic" class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+                <div class="mb-3 col-5">
+                    <label for="title" class="form-label text-blue-600"
+                        >Title</label
+                    >
+                    <h4>{!! $data->title !!}</h4>
+                  
+                </div>
+                <div class="mb-3 col-5">
+                    <label for="smallTitle" class="form-label text-blue-600"
+                        >Small Title</label
+                    >
+                    <p>{!! $data->smallTitle !!}</p>
+                  
+                </div>
+            </form>
+        </div>
+    </div> -->
 </div>
 @endsection
