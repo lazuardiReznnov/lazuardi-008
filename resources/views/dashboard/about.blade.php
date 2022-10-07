@@ -46,10 +46,10 @@
         <a href="{{ $data->fb }}" class="badge bg-blue-300 text-decoration-none"
             ><i class="bi bi-facebook"></i></a
         >|
-        <a href="{{ $data->ln }}" class="badge bg-blue-300 text-decoration-none"
+        <a href="{{ $data->ins }}" class="badge bg-blue-300 text-decoration-none"
             ><i class="bi bi-instagram"></i></a
         >|
-        <a href="{{ $data->ins }}" class="badge bg-blue-300 text-decoration-none"
+        <a href="{{ $data->ln }}" class="badge bg-blue-300 text-decoration-none"
             ><i class="bi bi-linkedin"></i
         ></a>
     </p>

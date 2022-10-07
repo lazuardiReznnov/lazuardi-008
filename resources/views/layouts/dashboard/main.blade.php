@@ -10,7 +10,9 @@
             integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
             crossorigin="anonymous"
         />
-        <link rel="stylesheet" href="/asset/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/asset/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/asset/css/trix.css" />
+        <script type="text/javascript" src="/asset/js/trix.js"></script>
 
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap"

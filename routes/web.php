@@ -24,22 +24,17 @@ Route::middleware('auth')->group(function () {
         Route::get('/about', 'about');
         Route::get('/contac', 'contac');
     });
-    Route::resource('/dashboard/about', DashboardAboutController::class);
-    Route::resource(
-        '/dashboard/user',
-        DashboardUserController::class
-    )->middleware('admin');
 
-    Route::post('/logout', [LoginController::class, 'logout'])->middleware(
-        'auth'
-    );
+    Route::middleware('admin')->group(function () {
+        Route::resource('/dashboard/user', DashboardUserController::class);
+        Route::resource(
+            '/dashboard/about',
+            DashboardAboutController::class
+        )->except(['store', 'show', 'edit', 'destroy', 'create']);
+    });
+
+    Route::post('/logout', [LoginController::class, 'logout']);
 });
-
-// Route::controller(DashboardController::class)->group(function () {
-//     Route::get('/dashboard', 'index')->middleware('auth');
-//     Route::get('/about', 'about')->middleware('auth');
-//     Route::get('/contac', 'contac')->middleware('auth');
-// });
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
