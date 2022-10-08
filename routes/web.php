@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('admin')->group(function () {
         Route::resource('/dashboard/user', DashboardUserController::class);
+
         Route::resource(
             '/dashboard/dashboardAbout',
             DashboardAboutController::class
