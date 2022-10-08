@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Merk;
+
+use Illuminate\Http\Request;
 
 class DashboardProductController extends Controller
 {
@@ -17,7 +18,7 @@ class DashboardProductController extends Controller
     public function index()
     {
         return view('dashboard.product.product.index', [
-            'title' => 'Product Management',
+            'title' => 'Management Product',
             'data' => Product::with(['category', 'merk'])
                 ->latest()
                 ->paginate(10)
@@ -49,21 +50,24 @@ class DashboardProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        return view('dashboard.product.product.show', [
+            'title' => 'Detail Product',
+            'data' => $product,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
         //
     }
@@ -72,10 +76,10 @@ class DashboardProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
         //
     }
@@ -83,10 +87,10 @@ class DashboardProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
         //
     }

@@ -21,8 +21,8 @@ return new class extends Migration {
             $table->text('descriptions');
             $table->string('pic')->nullable();
             $table->integer('dp');
-            $table->integer('3month');
-            $table->integer('6month');
+            $table->integer('three');
+            $table->integer('six');
             $table->integer('week');
             $table->timestamps();
         });
