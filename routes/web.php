@@ -3,6 +3,8 @@
 use App\Http\Controllers\DashboardAboutController;
 use App\Http\Controllers\DashboardCategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardMerkController;
+use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LandingpageController;
@@ -37,6 +39,15 @@ Route::middleware('auth')->group(function () {
         route::resource(
             '/dashboard/product/category',
             DashboardCategoryController::class
+        );
+
+        Route::resource(
+            '/dashboard/product/merk',
+            DashboardMerkController::class
+        );
+        Route::resource(
+            '/dashboard/product',
+            DashboardProductController::class
         );
     });
 

@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('slug');
             $table->text('descriptions');
-            $table->string('pic');
+            $table->string('pic')->nullable();
             $table->integer('dp');
             $table->integer('3month');
             $table->integer('6month');
