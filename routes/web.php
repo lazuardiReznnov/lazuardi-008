@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardAboutController;
+use App\Http\Controllers\DashboardCategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\LoginController;
@@ -31,6 +32,11 @@ Route::middleware('auth')->group(function () {
             '/dashboard/dashboardAbout',
             DashboardAboutController::class
         )->except(['store', 'show', 'edit', 'destroy', 'create']);
+
+        route::resource(
+            '/dashboard/product/category',
+            DashboardCategoryController::class
+        );
     });
 
     Route::post('/logout', [LoginController::class, 'logout']);

@@ -41,7 +41,7 @@
             <a
                 class="nav-link text-hover text-blue-200 font-semibold text-uppercase active fs-12"
                 aria-current="page"
-                href="#"
+                href="/dashboard/product/category"
                 ><i class="bi bi-tag"></i> category</a
             >
         </li>
