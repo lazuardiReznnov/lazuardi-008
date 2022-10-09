@@ -15,6 +15,20 @@ class MerkSeeder extends Seeder
      */
     public function run()
     {
-        //
+        merk::create([
+            'name' => 'Oppo',
+        ]);
+        merk::create([
+            'name' => 'Sony',
+        ]);
+        merk::create([
+            'name' => 'Nokia',
+        ]);
+        merk::create([
+            'name' => 'Samsung',
+        ]);
+        merk::create([
+            'name' => 'Realme',
+        ]);
     }
 }
