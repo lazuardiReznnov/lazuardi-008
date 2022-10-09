@@ -152,7 +152,7 @@ trix-toolbar[data-trix-button-group='file-tool'] {
   display: none;
 }
 
-aside:active {
+aside a:active {
   color: FFF;
   font-weight: bold;
 }

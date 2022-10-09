@@ -11,9 +11,21 @@
         </h1>
     </div>
 </div>
-<div class="card text-blue-100 shadow mb-5">
-    <div class="card-header font-semibold bg-blue-800 text-uppercase">
-        {{ $data->name }}
+<div class="card text-blue-50 shadow mb-5">
+    <div class="card-header fs-14 font-semibold bg-blue-800 text-uppercase">
+        <a
+            href="#"
+            class="link-light text-decoration-none"
+            >{{ $data->category->name }}</a
+        >-><a
+            href="#"
+            class="link-light text-decoration-none"
+            >{{ $data->merk->name }}</a
+        >-><a
+            href="#"
+            class="link-light text-decoration-none"
+            >{{ $data->name }}</a
+        >
     </div>
     <div class="card-body text-blue-50">
         <div class="row mb-3">
@@ -45,12 +57,11 @@
                     </li>
                     <li class="list-group-item text-blue-600">
                         @php $threemonth = ($data->three-$data->dp)/3 @endphp 3
-                        Bulan :
-                        {{ $threemonth }}
+                        Bulan : @currency($threemonth)
                     </li>
                     <li class="list-group-item text-blue-600">
                         @php $sixmonth= ($data->six-$data->dp)/6 @endphp 6 Bulan
-                        : {{ $sixmonth }}
+                        : @currency( $sixmonth)
                     </li>
                     <li class="list-group-item text-blue-600">
                         @php $week= ($data->week-$data->dp)/100000 @endphp
@@ -95,7 +106,7 @@
                     </button>
                 </div>
             </nav>
-            <div class="tab-content" id="nav-tabContent">
+            <div class="tab-content col-md-6" id="nav-tabContent">
                 <div
                     class="tab-pane fade show active p-2 text-blue-800 fs-14"
                     id="nav-desc"
