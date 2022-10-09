@@ -10,7 +10,7 @@
             <a href="/dashboard" class="badge bg-blue-700"
                 ><i class="bi bi-backspace"></i
             ></a>
-            PRODUCT MANAGEMENT
+            MERK PRODUCT MANAGEMENT
         </h1>
     </div>
 </div>
@@ -42,17 +42,14 @@
 <!-- endpesan -->
 <div class="card text-blue-100 shadow mb-5">
     <div class="card-header font-semibold bg-blue-800 text-uppercase">
-        PRODUCT List
+        MERK PRODUCT LIST
     </div>
     <div class="card-body text-blue-50">
         <div class="row mb-1">
             <div class="col-sm ms-2 mb-4">
                 <a
-                    href="/dashboard/product/create"
+                    href="/dashboard/product/merk/create"
                     class="btn bg-blue-700 text-blue-100 btn-sm"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="Create New product"
                 >
                     Add
                 </a>
@@ -81,64 +78,34 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Pic</th>
-                    <th scope="col">CATEGORY</th>
-                    <th scope="col">Merk</th>
                     <th scope="col">name</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
 
             <tbody class="table-group-divider">
-                @if($data->count()) @foreach($data as $product)
+                @if($data->count()) @foreach($data as $merk)
 
                 <tr>
                     <th scope="row">
                         {{ ($data->currentpage()-1) * $data->perpage() + $loop->index + 1 }}
                     </th>
-                    <td>
-                        @if($product->pic != 0)
-                        <img
-                            width="75"
-                            src="{{ asset('storage/'. $data->pic) }}"
-                            alt=""
-                        />
-                        @else
-                        {{ "-" }}
-                        @endif
-                    </td>
-                    <td>{{ $product->category->name }}</td>
-                    <td>{{ $product->merk->name }}</td>
-                    <td>{{ $product->name }}</td>
+                    <td>{{ $merk->name }}</td>
                     <td>
                         <a
-                            href="/dashboard/product/{{ $product->slug }}"
-                            class="badge text-bg-success"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            title="Detail product"
-                            ><i class="bi bi-eye"></i
-                        ></a>
-                        <a
-                            href="/dashboard/product/{{ $product->slug }}/edit"
+                            href="/dashboard/product/merk/{{ $merk->id }}/edit"
                             class="badge text-bg-warning"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            title="Edit product"
                             ><i class="bi bi-pencil-square"></i
                         ></a>
 
                         <form
-                            action="/dashboard/product/product/{{ $product->slug }}"
+                            action="/dashboard/product/merk/{{ $merk->id }}"
                             method="post"
                             class="d-inline"
                         >
                             @method('delete') @csrf
                             <button
                                 class="badge bg-danger border-0"
-                                data-bs-toggle="tooltip"
-                                data-bs-placement="top"
-                                title="Hapus product"
                                 onclick="return confirm('are You sure ??')"
                             >
                                 <i class="bi bi-file-x-fill"></i>

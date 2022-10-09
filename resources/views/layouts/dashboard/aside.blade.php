@@ -39,7 +39,7 @@
     <ul class="nav flex-column ms-2">
         <li class="nav-item bg-hover">
             <a
-                class="nav-link text-hover text-blue-200 font-semibold text-uppercase active fs-12"
+                class="nav-link text-hover text-blue-200 font-semibold text-uppercase {{ Request::is('/dashboard/product/category*') ? 'active' : '' }} fs-12"
                 aria-current="page"
                 href="/dashboard/product/category"
                 ><i class="bi bi-tag"></i> category</a
@@ -47,9 +47,17 @@
         </li>
         <li class="nav-item bg-hover">
             <a
-                class="nav-link text-blue-200 font-semibold text-uppercase fs-12 text-hover"
-                href="#"
-                ><i class="bi bi-bag-fill"></i> product</a
+                class="nav-link text-blue-200 font-semibold text-uppercase fs-12 text-hover {{ Request::is('/dashboard/product/merk*') ? 'active' : '' }}"
+                href="/dashboard/product/merk"
+                ><i class="bi bi-bag-fill"></i> Merk</a
+            >
+        </li>
+        <li class="nav-item bg-hover">
+            <a
+                class="nav-link text-blue-200 font-semibold text-uppercase fs-12 text-hover {{ Request::is('/dashboard/product*') ? 'active' : '' }}"
+                href="/dashboard/product"
+            >
+                <i class="bi bi-bag-fill"></i> product</a
             >
         </li>
     </ul>
