@@ -50,6 +50,9 @@
                 <a
                     href="/dashboard/product/create"
                     class="btn bg-blue-700 text-blue-100 btn-sm"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Create New product"
                 >
                     Add
                 </a>
@@ -111,11 +114,17 @@
                         <a
                             href="/dashboard/product/{{ $product->slug }}"
                             class="badge text-bg-success"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Detail product"
                             ><i class="bi bi-eye"></i
                         ></a>
                         <a
                             href="/dashboard/product/{{ $product->slug }}/edit"
                             class="badge text-bg-warning"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Edit product"
                             ><i class="bi bi-pencil-square"></i
                         ></a>
 
@@ -127,6 +136,9 @@
                             @method('delete') @csrf
                             <button
                                 class="badge bg-danger border-0"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                title="Hapus product"
                                 onclick="return confirm('are You sure ??')"
                             >
                                 <i class="bi bi-file-x-fill"></i>

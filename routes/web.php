@@ -29,17 +29,24 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware('admin')->group(function () {
+        // Route User
         Route::resource('/dashboard/user', DashboardUserController::class);
+        // End Route User
 
+        // Route Dashboard About
         Route::resource(
             '/dashboard/dashboardAbout',
             DashboardAboutController::class
-        )->except(['store', 'show', 'edit', 'destroy', 'create']);
+        )
+            // ->except(['store', 'show', 'edit', 'destroy', 'create'])
+            ->only(['index', 'update']);
 
+        // Route Product Category
         route::resource(
             '/dashboard/product/category',
             DashboardCategoryController::class
         );
+        // End Route Product Category
 
         Route::resource(
             '/dashboard/product/merk',
