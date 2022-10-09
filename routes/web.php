@@ -37,9 +37,8 @@ Route::middleware('auth')->group(function () {
         Route::resource(
             '/dashboard/dashboardAbout',
             DashboardAboutController::class
-        )
-            // ->except(['store', 'show', 'edit', 'destroy', 'create'])
-            ->only(['index', 'update']);
+        )->except(['store', 'show', 'edit', 'destroy', 'create']);
+        // ->only(['index', 'update']);
 
         // Route Product Category
         route::resource(
