@@ -10,3 +10,11 @@ function previewImage() {
         imgPreview.src = oFREvent.target.result;
     };
 }
+
+function makeslug(name, slug, link) {
+    name.addEventListener("change", function () {
+        fetch(link + name.value)
+            .then((response) => response.json())
+            .then((data) => (slug.value = data.slug));
+    });
+}

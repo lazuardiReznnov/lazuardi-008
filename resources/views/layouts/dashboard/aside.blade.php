@@ -30,8 +30,6 @@
             >
         </li>
     </ul>
-    @endcan
-    <!-- Admin authoritas -->
 
     <h3 class="fs-14 ms-2 my-2 text-uppercase">
         <i class="bi bi-list-ul"></i> product
@@ -61,6 +59,8 @@
             >
         </li>
     </ul>
+    @endcan
+    <!-- Admin authoritas -->
     <h3 class="fs-14 ms-2 my-2 text-uppercase">
         <i class="bi bi-list-ul"></i>Transaction
     </h3>

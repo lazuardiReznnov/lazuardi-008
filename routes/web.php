@@ -10,6 +10,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LandingpageController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,11 @@ Route::middleware('auth')->group(function () {
             '/dashboard/product',
             DashboardProductController::class
         );
+
+        Route::get('/dashboard/products/checkSlug', [
+            DashboardProductController::class,
+            'checkSlug',
+        ]);
     });
 
     Route::post('/logout', [LoginController::class, 'logout']);
