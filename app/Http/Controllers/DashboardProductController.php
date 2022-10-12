@@ -34,8 +34,12 @@ class DashboardProductController extends Controller
      */
     public function create()
     {
+        $categories = Category::All();
+        $merk = Merk::All();
         return view('dashboard.product.product.create', [
             'title' => 'Management Product => Add New Product',
+            'categories' => $categories,
+            'merks' => $merk,
         ]);
     }
 

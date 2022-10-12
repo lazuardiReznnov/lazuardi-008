@@ -23,6 +23,7 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
         />
+        <script src="/asset/js/lazuardi-008.js"></script>
     </head>
 
     <body>
@@ -55,6 +56,7 @@
         @include('layouts.dashboard.footer')
 
         <!-- Endfooter -->
+
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
             integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
@@ -65,6 +67,5 @@
             integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
             crossorigin="anonymous"
         ></script>
-        <script src="/asset/js/lazuardi-008.js"></script>
     </body>
 </html>

@@ -22,7 +22,7 @@
             enctype="multipart/form-data"
         >
             @csrf
-            <div class="mb-3">
+            <div class="mb-3 col-md-5">
                 <label for="name" class="form-label text-blue-600">Name</label>
                 <input
                     type="text"
@@ -39,7 +39,7 @@
                 </div>
                 @enderror
             </div>
-            <div class="mb-3">
+            <div class="mb-3 col-md-5">
                 <label for="slug" class="form-label text-blue-600">Slug</label>
                 <input
                     type="text"
@@ -56,51 +56,56 @@
 
                 @enderror
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label text-blue-600"
-                    >Password</label
+            <div class="mb-3 col-md-5">
+                <label for="role" class="form-label text-blue-600"
+                    >Category</label
                 >
-                <input
-                    type="password"
-                    class="form-control form-control-sm @error('password') is-invalid @enderror"
-                    id="password"
-                    name="password"
-                />
-                @error('password')
-                <div id="password" class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label text-blue-600"
-                    >Email address</label
-                >
-                <input
-                    type="email"
-                    class="form-control form-control-sm @error('email') is-invalid @enderror"
-                    id="email"
-                    placeholder="name@example.com"
-                    name="email"
-                />
-                @error('email')
-                <div id="email" class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
-            <div class="mb-3">
-                <label for="role" class="form-label text-blue-600">Role</label>
                 <select
                     class="form-select form-select-sm"
-                    aria-label="role"
-                    name="is_admin"
+                    aria-label="category"
+                    name="category"
                 >
-                    <option selected>Open this select menu</option>
-                    <option value="1">Admin</option>
-                    <option value="0">User</option>
+                    <option selected>Categories</option>
+                    @foreach($categories as $category)
+                    <option value="{{ $category->id }}">
+                        {{ $category->name }}
+                    </option>
+                    @endforeach
                 </select>
             </div>
+            <div class="mb-3 col-md-5">
+                <label for="role" class="form-label text-blue-600">Merk</label>
+                <select
+                    class="form-select form-select-sm"
+                    aria-label="merk"
+                    name="merk"
+                >
+                    <option selected>MERK</option>
+                    @foreach($merks as $merk)
+                    <option value="{{ $merk->id }}">
+                        {{ $merk->name }}
+                    </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label text-blue-600"
+                    >Description</label
+                >
+                <input id="description" type="hidden" name="description" />
+                <div class="card p-2">
+                    <trix-editor class="text-dark" input="description">{{
+                        old("description")
+                    }}</trix-editor>
+                </div>
+
+                @error('description')
+                <div id="description" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+
             <div class="mb-3 col-5">
                 <label for="pic" class="form-label text-blue-600">Photo</label>
                 <img width="200" class="img-preview img-fluid mb-2" alt="" />
@@ -134,12 +139,12 @@
     const link = "/dashboard/products/checkSlug?name=";
 
     makeslug(name, slug, link);
-    function makeslug(name, slug, link) {
-        name.addEventListener("change", function () {
-            fetch(link + name.value)
-                .then((response) => response.json())
-                .then((data) => (slug.value = data.slug));
-        });
-    }
+    // function makeslug(name, slug, link) {
+    //     name.addEventListener("change", function () {
+    //         fetch(link + name.value)
+    //             .then((response) => response.json())
+    //             .then((data) => (slug.value = data.slug));
+    //     });
+    // }
 </script>
 @endsection
