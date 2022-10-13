@@ -16,14 +16,14 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('category_id')->constrained('categories');
             $table->foreignId('merk_id');
-            $table->string('name');
-            $table->string('slug');
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
             $table->text('descriptions');
             $table->string('pic')->nullable();
-            $table->integer('dp');
-            $table->integer('three');
-            $table->integer('six');
-            $table->integer('week');
+            $table->integer('dp')->nullable();
+            $table->integer('three')->nullable();
+            $table->integer('six')->nullable();
+            $table->integer('week')->nullable();
             $table->timestamps();
         });
     }
