@@ -1,7 +1,5 @@
 @extends('layouts.dashboard.main') @section('contain')
 <!-- dashboard Head -->
-
-<!-- End dashboard Head -->
 <div class="row ms-1 mb-3">
     <div class="col-md">
         <h1
@@ -14,6 +12,8 @@
         </h1>
     </div>
 </div>
+<!-- End dashboard Head -->
+
 <!-- body -->
 <!-- pesan -->
 @if(session()->has('loginError'))

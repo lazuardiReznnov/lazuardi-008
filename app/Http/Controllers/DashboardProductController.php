@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Merk;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 use Illuminate\Http\Request;
 
@@ -33,7 +34,13 @@ class DashboardProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::All();
+        $merk = Merk::All();
+        return view('dashboard.product.product.create', [
+            'title' => 'Management Product => Add New Product',
+            'categories' => $categories,
+            'merks' => $merk,
+        ]);
     }
 
     /**
@@ -93,5 +100,11 @@ class DashboardProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Product::class, 'slug', $request->name);
+        return response()->json(['slug' => $slug]);
     }
 }
