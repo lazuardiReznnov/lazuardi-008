@@ -16,7 +16,7 @@
         Customer Data
     </div>
     <div class="card-body text-blue-50">
-        <div class="row mb-3">
+        <div class="row">
             <div class="col-md">
                 @if($data->pic != 0)
                 <img
@@ -78,7 +78,7 @@
                         aria-controls="nav-home"
                         aria-selected="true"
                     >
-                        descriptionss
+                        Transaction
                     </button>
                     <button
                         class="nav-link"
@@ -94,7 +94,7 @@
                     </button>
                 </div>
             </nav>
-            <div class="tab-content col-md-6" id="nav-tabContent">
+            <div class="tab-content col-md" id="nav-tabContent">
                 <div
                     class="tab-pane fade show active p-2 text-blue-800 fs-14"
                     id="nav-desc"
@@ -102,7 +102,82 @@
                     aria-labelledby="nav-home-tab"
                     tabindex="0"
                 >
-                    <!-- {{ $data->descriptions }} -->
+                    <div class="card text-blue-100 shadow mb-5">
+                        <div
+                            class="card-header font-semibold bg-blue-800 text-uppercase"
+                        >
+                            Credit Data
+                        </div>
+                        <div class="card-body text-blue-50">
+                            <table class="table text-blue-900 p-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Id Transaction</th>
+                                        <th scope="col">Product</th>
+                                        <th scope="col">Total Harga</th>
+                                        <th scope="col">
+                                            Total Total Terbayar
+                                        </th>
+                                        <th scope="col">Sisa Bayar</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="table-group-divider">
+                                    <tr>
+                                        <th scope="row">1</th>
+
+                                        <td>002</td>
+                                        <td>oppo A 57</td>
+                                        <td>3.000.000</td>
+                                        <td>1.500.000</td>
+                                        <td>1.500.000</td>
+                                        <td>
+                                            <a
+                                                href="/dashboard/customer/"
+                                                class="badge text-bg-success"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-placement="top"
+                                                title="Detail customer"
+                                                ><i class="bi bi-eye"></i
+                                            ></a>
+                                            <a
+                                                href="/dashboard/customer//edit"
+                                                class="badge text-bg-warning"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-placement="top"
+                                                title="Edit customer"
+                                                ><i
+                                                    class="bi bi-pencil-square"
+                                                ></i
+                                            ></a>
+
+                                            <form
+                                                action="/dashboard/customer/customer/"
+                                                method="post"
+                                                class="d-inline"
+                                            >
+                                                @method('delete') @csrf
+                                                <button
+                                                    class="badge bg-danger border-0"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="top"
+                                                    title="Hapus customer"
+                                                    onclick="return confirm('are You sure ??')"
+                                                >
+                                                    <i
+                                                        class="bi bi-file-x-fill"
+                                                    ></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <caption class="mt-3"></caption>
+                            </table>
+                        </div>
+                    </div>
                 </div>
                 <div
                     class="tab-pane fade p-2 text-blue-800 fs-14"

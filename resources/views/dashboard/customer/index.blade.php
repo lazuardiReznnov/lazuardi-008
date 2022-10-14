@@ -52,7 +52,7 @@
                     class="btn bg-blue-700 text-blue-100 btn-sm"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
-                    title="Create New product"
+                    title="Create New Customer"
                 >
                     Add
                 </a>
@@ -81,9 +81,9 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Pic</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -95,10 +95,19 @@
                     <th scope="row">
                         {{ ($data->currentpage()-1) * $data->perpage() + $loop->index + 1 }}
                     </th>
-
+                    <td>
+                        @if($customer->pic != 0)
+                        <img
+                            width="75"
+                            src="{{ asset('storage/'. $data->pic) }}"
+                            alt=""
+                        />
+                        @else
+                        {{ "-" }}
+                        @endif
+                    </td>
                     <td>{{ $customer->name }}</td>
-                    <td>{{ $customer->email }}</td>
-                    <td>{{ $customer->phone }}</td>
+                    <td>Lunas/Belum</td>
                     <td>
                         <a
                             href="/dashboard/customer/{{ $customer->slug }}"
