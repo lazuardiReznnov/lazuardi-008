@@ -103,14 +103,14 @@
         </li>
     </ul>
     <h3 class="fs-14 ms-2 my-2 text-uppercase">
-        <i class="bi bi-list-ul"></i> Costumer
+        <i class="bi bi-list-ul"></i> Customers
     </h3>
     <ul class="nav flex-column ms-2">
         <li class="nav-item bg-hover">
             <a
                 class="nav-link text-hover text-blue-200 font-semibold text-uppercase active fs-12"
                 aria-current="page"
-                href="#"
+                href="/dashboard/customer"
                 ><i class="bi bi-tag"></i> Costumer Data</a
             >
         </li>

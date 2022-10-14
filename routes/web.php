@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardAboutController;
 use App\Http\Controllers\DashboardCategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardCustomerController;
 use App\Http\Controllers\DashboardMerkController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\DashboardUserController;
@@ -52,6 +53,7 @@ Route::middleware('auth')->group(function () {
             '/dashboard/product/merk',
             DashboardMerkController::class
         );
+
         Route::resource(
             '/dashboard/product',
             DashboardProductController::class
@@ -61,6 +63,11 @@ Route::middleware('auth')->group(function () {
             DashboardProductController::class,
             'checkSlug',
         ]);
+
+        Route::resource(
+            '/dashboard/customer',
+            DashboardCustomerController::class
+        );
     });
 
     Route::post('/logout', [LoginController::class, 'logout']);
