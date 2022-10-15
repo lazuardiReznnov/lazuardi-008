@@ -125,12 +125,19 @@
                                 </thead>
 
                                 <tbody class="table-group-divider">
+                                    @foreach($data->Transaction as $trans)
                                     <tr>
-                                        <th scope="row">1</th>
+                                        <th scope="row">
+                                            {{ $loop->index + 1 }}
+                                        </th>
 
-                                        <td>002</td>
-                                        <td>oppo A 57</td>
-                                        <td>3.000.000</td>
+                                        <td>{{ $trans->inv }}</td>
+                                        <td>{{ $trans->product->name }}</td>
+                                        <td>
+                                            @php $jumlah=
+                                            $trans->jumlah+$trans->dp @endphp
+                                            {{ $jumlah }}
+                                        </td>
                                         <td>1.500.000</td>
                                         <td>1.500.000</td>
                                         <td>
@@ -173,6 +180,7 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                                 <caption class="mt-3"></caption>
                             </table>

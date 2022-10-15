@@ -6,13 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Product extends Model
+class Fintech extends Model
 {
     use HasFactory;
     use Sluggable;
 
     protected $guarded = ['id'];
-
     public function sluggable(): array
     {
         return [
@@ -20,21 +19,6 @@ class Product extends Model
                 'source' => 'name',
             ],
         ];
-    }
-
-    public function merk()
-    {
-        return $this->belongsTo(merk::class);
-    }
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function Transaction()
-    {
-        return $this->hasMany(Transaction::class);
     }
     public function getRouteKeyName()
     {

@@ -37,7 +37,7 @@
     <ul class="nav flex-column ms-2">
         <li class="nav-item bg-hover">
             <a
-                class="nav-link text-hover text-blue-200 font-semibold text-uppercase {{ Request::is('/dashboard/product/category*') ? 'active' : '' }} fs-12"
+                class="nav-link text-hover text-blue-50 font-semibold text-uppercase {{ Request::is('/dashboard/product/category*') ? 'active' : '' }} fs-12"
                 aria-current="page"
                 href="/dashboard/product/category"
                 ><i class="bi bi-tag"></i> category</a
