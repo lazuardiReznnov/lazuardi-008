@@ -39,5 +39,17 @@ class ProductSeeder extends Seeder
             'six' => 3300000,
             'week' => 300000,
         ]);
+        Product::create([
+            'category_id' => 3,
+            'merk_id' => 4,
+            'name' => 'Samsung M15',
+            'slug' => 'samsung-m15',
+            'descriptions' =>
+                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore recusandae tempore voluptate, perspiciatis sapiente voluptates, voluptas itaque possimus assumenda veniam vitae alias molestias excepturi',
+            'dp' => 300000,
+            'three' => 3000000,
+            'six' => 3300000,
+            'week' => 300000,
+        ]);
     }
 }
