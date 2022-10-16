@@ -20,8 +20,7 @@ class DashboardProductController extends Controller
     {
         return view('dashboard.product.product.index', [
             'title' => 'Management Product',
-            'data' => Product::with(['category', 'merk'])
-                ->latest()
+            'data' => Product::latest()
                 ->paginate(10)
                 ->withQueryString(),
         ]);
@@ -64,7 +63,7 @@ class DashboardProductController extends Controller
     {
         return view('dashboard.product.product.show', [
             'title' => 'Detail Product',
-            'data' => $product,
+            'data' => $product->load(['merk', 'category']),
         ]);
     }
 

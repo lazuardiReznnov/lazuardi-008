@@ -12,6 +12,7 @@ class Product extends Model
     use Sluggable;
 
     protected $guarded = ['id'];
+    protected $with = ['category', 'merk'];
 
     public function sluggable(): array
     {
@@ -22,12 +23,12 @@ class Product extends Model
         ];
     }
 
-    public function merk()
+    public function Merk()
     {
         return $this->belongsTo(merk::class);
     }
 
-    public function category()
+    public function Category()
     {
         return $this->belongsTo(Category::class);
     }

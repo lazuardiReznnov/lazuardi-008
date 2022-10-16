@@ -9,18 +9,19 @@ class Transaction extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $with = ['customer', 'product'];
 
     public function getRouteKeyName()
     {
         return 'inv';
     }
 
-    public function Customer()
+    public function customer()
     {
         return $this->belongsTo(Customer::class);
     }
 
-    public function Product()
+    public function product()
     {
         return $this->belongsTo(Product::class);
     }
